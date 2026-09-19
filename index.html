@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emilio & Alexandra — 30 de Octubre 2026</title>
+  <meta name="description" content="Invitación al casamiento de Emilio y Alexandra. 30 de octubre de 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero__image">
+      <img src="assets/images/foto-pareja-mirada.png" alt="Emilio y Alexandra de espaldas, tomados de la mano">
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__pretitle">Nos casamos</p>
+      <h1 class="hero__title">
+        <span>Emilio</span>
+        <span class="hero__amp">&</span>
+        <span>Alexandra</span>
+      </h1>
+      <p class="hero__date">30 · Octubre · 2026</p>
+    </div>
+    <a href="#countdown" class="hero__scroll" aria-label="Desplazarse hacia abajo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </a>
+  </header>
+
+  <!-- Countdown -->
+  <section id="countdown" class="countdown section">
+    <div class="container">
+      <p class="section__label">Faltan</p>
+      <div class="countdown__grid" aria-live="polite">
+        <div class="countdown__item">
+          <span class="countdown__number" id="days">—</span>
+          <span class="countdown__unit">días</span>
+        </div>
+        <div class="countdown__separator">:</div>
+        <div class="countdown__item">
+          <span class="countdown__number" id="hours">—</span>
+          <span class="countdown__unit">horas</span>
+        </div>
+        <div class="countdown__separator">:</div>
+        <div class="countdown__item">
+          <span class="countdown__number" id="minutes">—</span>
+          <span class="countdown__unit">minutos</span>
+        </div>
+        <div class="countdown__separator">:</div>
+        <div class="countdown__item">
+          <span class="countdown__number" id="seconds">—</span>
+          <span class="countdown__unit">segundos</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="intro section">
+    <div class="container container--narrow">
+      <div class="intro__icon" aria-hidden="true">
+        <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="30" r="18" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="52" cy="30" r="18" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M40 42 C36 36, 36 30, 40 26 C44 30, 44 36, 40 42Z" fill="currentColor" opacity="0.6"/>
+        </svg>
+      </div>
+      <p class="intro__text">
+        Queremos que vos seas parte de este día tan especial.
+      </p>
+    </div>
+  </section>
+
+  <!-- Ubicaciones -->
+  <section class="locations section">
+    <div class="container">
+      <h2 class="section__title">Ubicaciones</h2>
+      <div class="locations__grid">
+
+        <article class="location-card">
+          <span class="location-card__number">01</span>
+          <h3 class="location-card__name">Civil</h3>
+          <p class="location-card__datetime">28 de octubre de 2026 · 11:45 hs</p>
+          <p class="location-card__address">Canning 4019, Hurlingham</p>
+          <a
+            class="location-card__link"
+            href="https://maps.google.com/?q=Canning+4019,+Hurlingham"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Ver en mapa →</a>
+        </article>
+
+        <article class="location-card">
+          <span class="location-card__number">02</span>
+          <h3 class="location-card__name">Iglesia del Salvador</h3>
+          <p class="location-card__datetime">30 de octubre de 2026 · 11:35 hs</p>
+          <p class="location-card__address">Constituyentes 950, Morón</p>
+          <a
+            class="location-card__link"
+            href="https://maps.google.com/?q=Constituyentes+950,+Morón"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Ver en mapa →</a>
+        </article>
+
+        <article class="location-card">
+          <span class="location-card__number">03</span>
+          <h3 class="location-card__name">La Moneda</h3>
+          <p class="location-card__datetime">30 de octubre de 2026 · 13:00 hs</p>
+          <p class="location-card__address">Nuestra Señora del Buen Viaje 872, Morón</p>
+          <a
+            class="location-card__link"
+            href="https://maps.google.com/?q=Nuestra+Señora+del+Buen+Viaje+872,+Morón"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Ver en mapa →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="gallery section">
+    <div class="container">
+      <div class="gallery__stack">
+        <figure class="gallery__photo">
+          <img src="assets/images/foto-pareja-completa.png" alt="Emilio y Alexandra en el parque" loading="lazy">
+        </figure>
+        <div class="gallery__row">
+          <figure class="gallery__photo">
+            <img src="assets/images/foto-manos.png" alt="Manos entrelazadas" loading="lazy">
+          </figure>
+          <figure class="gallery__photo">
+            <img src="assets/images/foto-biblia.png" alt="Emilio y Alexandra con la Biblia" loading="lazy">
+          </figure>
+        </div>
+        <figure class="gallery__photo">
+          <img src="assets/images/foto-campo.png" alt="Emilio y Alexandra en el campo" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Código de vestimenta -->
+  <section class="card-section section">
+    <div class="container container--narrow">
+      <div class="invitation-card">
+        <div class="invitation-card__leaves invitation-card__leaves--tl" aria-hidden="true"></div>
+        <div class="invitation-card__leaves invitation-card__leaves--br" aria-hidden="true"></div>
+        <div class="invitation-card__sparkles" aria-hidden="true"></div>
+
+        <div class="invitation-card__header">
+          <h2 class="invitation-card__names">Emilio &amp; Alexandra</h2>
+          <div class="invitation-card__rings" aria-hidden="true">
+            <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="30" r="18" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="52" cy="30" r="18" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M40 42 C36 36, 36 30, 40 26 C44 30, 44 36, 40 42Z" fill="currentColor" opacity="0.6"/>
+            </svg>
+          </div>
+        </div>
+
+        <p class="invitation-card__intro">
+          Queremos que vos seas parte de este día tan especial.
+        </p>
+
+        <div class="invitation-card__body">
+          <h3 class="invitation-card__subtitle">Código de vestimenta:</h3>
+          <p class="invitation-card__text">
+            Para acompañar el estilo de nuestra ceremonia, les pedimos elegir un look formal y cómodo, evitando escotes, con mangas por debajo del codo y un largo por debajo de las rodillas. 🤍
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regalos -->
+  <section class="card-section section section--alt">
+    <div class="container container--narrow">
+      <div class="invitation-card invitation-card--gold">
+        <div class="invitation-card__leaves invitation-card__leaves--tl" aria-hidden="true"></div>
+        <div class="invitation-card__leaves invitation-card__leaves--br" aria-hidden="true"></div>
+        <div class="invitation-card__sparkles" aria-hidden="true"></div>
+
+        <p class="invitation-card__text invitation-card__text--center">
+          Su asistencia a nuestra boda será regalo suficiente. Pero si desean ayudarnos a ahorrar para nuestra luna de miel, les dejamos los datos de nuestra cuenta bancaria
+        </p>
+
+        <div class="bank-details">
+          <p class="bank-details__alias">Alias <strong>boda.emi.ale</strong></p>
+          <p class="bank-details__cbu">CBU: <strong>0140000703100063713888</strong></p>
+          <button class="bank-details__copy" id="copy-cbu" type="button">
+            Copiar CBU
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Emilio &amp; Alexandra · 30 · X · 2026</p>
+  </footer>
+
+  <script src="js/countdown.js"></script>
+</body>
+</html>

@@ -1,0 +1,542 @@
+/* ── Variables ── */
+:root {
+  --cream: #f8f6f2;
+  --cream-dark: #f0ece4;
+  --sage: #5a6b55;
+  --sage-light: #7a8f74;
+  --sage-dark: #3d4a39;
+  --gold: #b8956a;
+  --gold-light: #d4b896;
+  --charcoal: #2c2c2c;
+  --gray: #6b6b6b;
+  --white: #ffffff;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Jost', system-ui, sans-serif;
+
+  --section-padding: clamp(4rem, 10vw, 7rem);
+  --container-width: 1100px;
+  --narrow-width: 680px;
+
+  --transition: 0.3s ease;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--charcoal);
+  background: var(--cream);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  width: min(var(--container-width), 90vw);
+  margin-inline: auto;
+}
+
+.container--narrow {
+  width: min(var(--narrow-width), 90vw);
+}
+
+.section {
+  padding-block: var(--section-padding);
+}
+
+.section--alt {
+  background: var(--cream-dark);
+}
+
+.section__label {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-style: italic;
+  color: var(--sage);
+  text-align: center;
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+}
+
+.section__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  color: var(--sage-dark);
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin-bottom: 3rem;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__image {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%) contrast(1.05);
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.35) 60%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--white);
+  padding: 2rem;
+}
+
+.hero__pretitle {
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+}
+
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 10vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1em;
+}
+
+.hero__amp {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.55em;
+  opacity: 0.7;
+  margin-block: -0.1em;
+}
+
+.hero__date {
+  font-family: var(--font-sans);
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  opacity: 0.8;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--white);
+  opacity: 0.6;
+  animation: bounce 2.5s infinite;
+  z-index: 1;
+  transition: opacity var(--transition);
+}
+
+.hero__scroll:hover {
+  opacity: 1;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── Countdown ── */
+.countdown {
+  background: var(--white);
+  border-bottom: 1px solid rgba(90, 107, 85, 0.12);
+}
+
+.countdown__grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.countdown__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: clamp(60px, 15vw, 100px);
+}
+
+.countdown__number {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 500;
+  color: var(--sage-dark);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown__unit {
+  font-family: var(--font-sans);
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 0.5rem;
+}
+
+.countdown__separator {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--gold);
+  opacity: 0.5;
+  align-self: flex-start;
+  padding-top: 0.3em;
+}
+
+/* ── Intro ── */
+.intro {
+  text-align: center;
+}
+
+.intro__icon {
+  width: 60px;
+  margin: 0 auto 1.5rem;
+  color: var(--gold);
+}
+
+.intro__text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--sage);
+  line-height: 1.5;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+/* ── Locations ── */
+.locations__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.location-card {
+  background: var(--white);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px solid rgba(90, 107, 85, 0.1);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.location-card:hover {
+  box-shadow: 0 8px 30px rgba(90, 107, 85, 0.08);
+  transform: translateY(-2px);
+}
+
+.location-card__number {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 0.75rem;
+  line-height: 1;
+}
+
+.location-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--sage-dark);
+  margin-bottom: 0.5rem;
+}
+
+.location-card__datetime {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.location-card__address {
+  font-size: 0.95rem;
+  color: var(--gray);
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.location-card__link {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+  transition: color var(--transition);
+}
+
+.location-card__link:hover {
+  color: var(--gold);
+}
+
+/* ── Gallery ── */
+.gallery__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.gallery__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.gallery__photo {
+  overflow: hidden;
+  line-height: 0;
+}
+
+.gallery__photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.6s ease;
+}
+
+.gallery__photo:hover img {
+  filter: grayscale(80%) contrast(1.05);
+}
+
+@media (max-width: 600px) {
+  .gallery__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Invitation Cards ── */
+.invitation-card {
+  position: relative;
+  background: var(--white);
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid rgba(90, 107, 85, 0.08);
+}
+
+.invitation-card--gold .invitation-card__text,
+.invitation-card--gold .bank-details__alias,
+.invitation-card--gold .bank-details__cbu {
+  color: var(--gold);
+}
+
+/* Decorative leaves (CSS approximation) */
+.invitation-card__leaves {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.invitation-card__leaves--tl {
+  top: -10px;
+  left: -10px;
+  background:
+    radial-gradient(ellipse 40px 20px at 30% 60%, var(--sage-light) 0%, transparent 70%),
+    radial-gradient(ellipse 35px 18px at 50% 40%, var(--sage) 0%, transparent 70%),
+    radial-gradient(ellipse 30px 15px at 70% 65%, var(--sage-light) 0%, transparent 70%);
+  transform: rotate(-15deg);
+}
+
+.invitation-card__leaves--br {
+  bottom: -10px;
+  right: -10px;
+  background:
+    radial-gradient(ellipse 40px 20px at 70% 40%, var(--sage-light) 0%, transparent 70%),
+    radial-gradient(ellipse 35px 18px at 50% 60%, var(--sage) 0%, transparent 70%),
+    radial-gradient(ellipse 30px 15px at 30% 35%, var(--sage-light) 0%, transparent 70%);
+  transform: rotate(165deg);
+}
+
+.invitation-card__sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 1.5px at 12% 18%, var(--gold) 0%, transparent 100%),
+    radial-gradient(circle 1px at 18% 25%, var(--gold-light) 0%, transparent 100%),
+    radial-gradient(circle 1.5px at 88% 82%, var(--gold) 0%, transparent 100%),
+    radial-gradient(circle 1px at 82% 75%, var(--gold-light) 0%, transparent 100%),
+    radial-gradient(circle 1px at 15% 80%, var(--gold-light) 0%, transparent 100%),
+    radial-gradient(circle 1.5px at 85% 15%, var(--gold) 0%, transparent 100%);
+  opacity: 0.5;
+}
+
+.invitation-card__header {
+  margin-bottom: 1.5rem;
+}
+
+.invitation-card__names {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 500;
+  color: var(--sage);
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.invitation-card__rings {
+  width: 50px;
+  margin: 0 auto;
+  color: var(--gold);
+}
+
+.invitation-card__intro {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--sage);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.invitation-card__subtitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  font-weight: 500;
+  color: var(--sage-dark);
+  margin-bottom: 1rem;
+}
+
+.invitation-card__text {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: var(--sage);
+  line-height: 1.8;
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.invitation-card__text--center {
+  margin-bottom: 2rem;
+}
+
+/* ── Bank Details ── */
+.bank-details {
+  margin-top: 1rem;
+}
+
+.bank-details__alias {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  margin-bottom: 0.5rem;
+}
+
+.bank-details__cbu {
+  font-family: var(--font-serif);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  margin-bottom: 1.5rem;
+  word-break: break-all;
+}
+
+.bank-details__alias strong,
+.bank-details__cbu strong {
+  font-weight: 600;
+}
+
+.bank-details__copy {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-light);
+  padding: 0.65rem 1.5rem;
+  transition: background var(--transition), color var(--transition);
+}
+
+.bank-details__copy:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.bank-details__copy.copied {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: var(--white);
+}
+
+/* ── Footer ── */
+.footer {
+  padding: 2.5rem;
+  text-align: center;
+  background: var(--sage-dark);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer p {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+}

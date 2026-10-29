@@ -127,6 +127,91 @@
     </div>
   </section>
 
+  <!-- Mapa de mesas -->
+  <section class="tables section" id="mesas">
+    <div class="container">
+      <h2 class="section__title">Mapa de mesas</h2>
+      <p class="tables__lead">Buscá tu nombre para encontrar tu mesa.</p>
+
+      <form class="tables__search" role="search" onsubmit="return false">
+        <label class="tables__search-label" for="mesa-search">Tu nombre</label>
+        <input
+          id="mesa-search"
+          class="tables__search-input"
+          type="search"
+          placeholder="Escribí tu nombre"
+          autocomplete="off"
+          enterkeyhint="search"
+        >
+        <p class="tables__result" id="mesa-result" hidden></p>
+      </form>
+
+      <div class="tables__grid">
+        <article class="table-card" data-mesa="1">
+          <h3 class="table-card__title">Mesa <span>1</span></h3>
+          <ul class="table-card__list">
+            <li>Camila</li>
+            <li>Gabriel</li>
+            <li>Cinthia</li>
+            <li>Marcos</li>
+            <li>Matias</li>
+            <li>Lucila</li>
+            <li>Leonel</li>
+            <li>Carolina</li>
+          </ul>
+        </article>
+
+        <article class="table-card" data-mesa="3">
+          <h3 class="table-card__title">Mesa <span>3</span></h3>
+          <ul class="table-card__list">
+            <li>Ines</li>
+            <li>Gustavo</li>
+            <li>Jose Luis</li>
+            <li>Silvia</li>
+            <li>Daniel</li>
+            <li>Lola</li>
+            <li>Rocio</li>
+            <li>Gustavo</li>
+            <li>Liz</li>
+            <li>Julieta</li>
+          </ul>
+        </article>
+
+        <article class="table-card" data-mesa="2">
+          <h3 class="table-card__title">Mesa <span>2</span></h3>
+          <ul class="table-card__list">
+            <li>Luna</li>
+            <li>Yamila</li>
+            <li>Valentin</li>
+            <li>Enzo</li>
+            <li>Maria</li>
+            <li>Gladys</li>
+            <li>Christian</li>
+            <li>Romina</li>
+            <li>Sofia</li>
+            <li>Nicolas</li>
+          </ul>
+        </article>
+
+        <article class="table-card" data-mesa="4">
+          <h3 class="table-card__title">Mesa <span>4</span></h3>
+          <ul class="table-card__list">
+            <li>Fabian</li>
+            <li>Marta Edith</li>
+            <li>Claudio</li>
+            <li>Martin</li>
+            <li>Lara</li>
+            <li>Isabel</li>
+            <li>Felipe</li>
+            <li>Valentina</li>
+            <li>Jorge</li>
+            <li>Noemi</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- Galería -->
   <section class="gallery section">
     <div class="container">

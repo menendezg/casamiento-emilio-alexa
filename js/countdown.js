@@ -38,6 +38,71 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
+  const searchInput = document.getElementById('mesa-search');
+  const searchResult = document.getElementById('mesa-result');
+  const tableCards = Array.from(document.querySelectorAll('.table-card'));
+
+  function normalizeName(value) {
+    return value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .trim();
+  }
+
+  function filterTables() {
+    const query = normalizeName(searchInput.value);
+    const matches = [];
+
+    tableCards.forEach((card) => {
+      const names = Array.from(card.querySelectorAll('li'));
+      let hits = 0;
+
+      names.forEach((name) => {
+        const isMatch = query.length > 0 && normalizeName(name.textContent).includes(query);
+        name.classList.toggle('is-match', isMatch);
+        name.classList.toggle('is-dim', query.length > 0 && !isMatch);
+        if (isMatch) {
+          hits += 1;
+          matches.push({
+            name: name.textContent.trim(),
+            mesa: card.dataset.mesa,
+          });
+        }
+      });
+
+      card.classList.toggle('is-dim', query.length > 0 && hits === 0);
+      card.classList.toggle('is-hit', hits > 0);
+    });
+
+    if (!query) {
+      searchResult.hidden = true;
+      searchResult.textContent = '';
+      searchResult.classList.remove('is-empty');
+      return;
+    }
+
+    searchResult.hidden = false;
+    searchResult.classList.toggle('is-empty', matches.length === 0);
+
+    if (matches.length === 0) {
+      searchResult.textContent = 'No encontramos ese nombre.';
+      return;
+    }
+
+    const mesas = [...new Set(matches.map((match) => match.mesa))];
+    if (matches.length === 1) {
+      searchResult.textContent = matches[0].name + ' · Mesa ' + matches[0].mesa;
+      return;
+    }
+
+    searchResult.textContent = matches.length + ' personas · ' + mesas.map((mesa) => 'Mesa ' + mesa).join(', ');
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterTables);
+  }
+
   const copyBtn = document.getElementById('copy-cbu');
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
